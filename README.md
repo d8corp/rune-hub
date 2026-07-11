@@ -652,7 +652,7 @@ off(count, 'change', listener)
 ```
 
 ## Slot
-###### [🏠︎](#index) / Slot [↑](#events) [↓](#casting)
+###### [🏠︎](#index) / Slot [↑](#events) [↓](#hooks)
 
 <sup>[Why use Slot directly?](#why-use-slot-directly) • [Basic usage](#basic-usage) • [Computed slots](#computed-slots) • [Slot API](#slot-api) • [Custom slots](#custom-slots)</sup>
 
@@ -931,7 +931,7 @@ search.value = 'abc'
 ```
 
 ## Hooks
-###### [🏠︎](#index) / Hooks [↑](#casting) [↓](#common-pitfalls)
+###### [🏠︎](#index) / Hooks [↑](#slot) [↓](#common-pitfalls)
 
 <sup>[get](#get) • [set](#set) • [raw](#raw) • [on](#on) • [off](#off) • [update](#update) • [destroy](#destroy) • [batch](#batch) • [unwatch](#unwatch) • [slot](#slot-hook) • [getSlot](#getslot) • [hub](#hub-hook)</sup>
 
