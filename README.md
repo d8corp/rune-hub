@@ -777,7 +777,9 @@ const double = new Slot(() => count.value * 2)
 
 double.on('change', () => {
   console.log('Double:', double.value)
-}, true)  // up = true to activate
+})
+
+double.on() // to activate
 
 count.value = 5
 // logs: Double: 10
