@@ -845,7 +845,7 @@ slot.subs        // Set<Slot> — subscribers
 
 ```ts
 slot.on()                          // Activate slot for effects (returns destructor)
-slot.on(event, listener, up?)      // Subscribe to specific event
+slot.on(event, listener)           // Subscribe to specific event
 slot.off()                         // Deactivate slot (remove from execution context)
 slot.off(event, listener)          // Unsubscribe from event
 slot.update()                      // Force notification (when mutating objects/arrays)
