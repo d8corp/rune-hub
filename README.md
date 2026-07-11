@@ -119,10 +119,9 @@ const count = () => 0
 <sup>**[ [Usage](#usage) ]** [Example Vanilla JS](#example-vanilla-js) • [Example React](#example-react)</sup>  
 <sup>**[ [Rune](#rune) ]** [Types of runes](#types-of-runes) • [Dynamic dependencies](#dynamic-dependencies) • [Runes are keys](#runes-are-keys)</sup>  
 <sup>**[ [Hub](#hub) ]** [Why use custom hubs?](#why-use-custom-hubs) • [Use cases](#use-cases)</sup>  
-<sup>**[ [Effects](#effects) ]** [Basic effects](#basic-effects) • [Nested effects](#nested-effects) • [Component-like patterns](#component-like-patterns)</sup>  
-<sup>**[ [Events](#events) ]** [Event types](#event-types) • [Unsubscribe](#unsubscribe) • [Up parameter](#up-parameter) • [Free parameter](#free-parameter)</sup>  
-<sup>**[ [Slot](#slot) ]** [Why use Slot directly?](#why-use-slot-directly) • [Basic usage](#basic-usage) • [Computed slots](#computed-slots) • [Slot API](#slot-api) • [Custom slots](#custom-slots)</sup>  
-<sup>**[ [Casting](#casting) ]** [Custom Slot](#custom-slot) • [setCast helper](#setcast-helper)</sup>  
+<sup>**[ [Effects](#effects) ]** [Basic effects](#basic-effects) • [Nested effects](#nested-effects)</sup>  
+<sup>**[ [Events](#events) ]** [Event types](#event-types) • [Unsubscribe](#unsubscribe)</sup>  
+<sup>**[ [Slot](#slot) ]** [Why use Slot directly?](#why-use-slot-directly) • [Basic usage](#basic-usage) • [Computed slots](#computed-slots) • [Slot API](#slot-api) • [Custom slots](#custom-slots)</sup>   
 <sup>**[ [Hooks](#hooks) ]** [get](#get) • [set](#set) • [raw](#raw) • [on](#on) • [off](#off) • [update](#update) • [destroy](#destroy) • [batch](#batch) • [unwatch](#unwatch) • [slot](#slot-hook) • [getSlot](#getslot) • [hub](#hub-hook)</sup>  
 <sup>**[ [Common Pitfalls](#common-pitfalls) ]** [Dynamic runes](#dynamic-runes) • [Mutating without update](#mutating-without-update) • [Circular dependencies](#circular-dependencies)</sup>  
 <sup>**[ [TypeScript](#typescript) ]** [Type inference](#type-inference) • [Explicit return types](#explicit-return-types) • [Explicit variable types](#explicit-variable-types) • [Type safety](#type-safety) • [DRY Principle](#dry-principle)</sup>  
@@ -234,13 +233,13 @@ A reactive counter in React:
 
 ```tsx
 import { set, get } from 'rune-hub'
-import { useGet } from '@rune-hub/react'
+import { useRune } from '@rune-hub/react'
 
 const count = () => 0
 const increase = () => set(count, get(count) + 1)
 
 export function Counter() {
-  const value = useGet(count)
+  const value = useRune(count)
 
   return (
     <button onClick={increase}>
@@ -486,7 +485,7 @@ console.log(get(total))  // still 100
 ## Effects
 ###### [🏠︎](#index) / Effects [↑](#hub) [↓](#events)
 
-<sup>[Basic effects](#basic-effects) • [Nested effects](#nested-effects) • [Component-like patterns](#component-like-patterns)</sup>
+<sup>[Basic effects](#basic-effects) • [Nested effects](#nested-effects)</sup>
 
 Effects are runes that perform side effects — logging, DOM updates, network requests, state mutations, or any operation beyond pure computation.
 
@@ -570,90 +569,27 @@ set(message, 'Hi')
 // logs: Message: Hi
 ```
 
-### Component-like patterns
-###### [🏠︎](#index) / [Effects](#effects) / Component-like patterns [↑](#nested-effects)
-
-Nested effects enable component-like patterns where each effect acts as an isolated unit with its own lifecycle. Components mount when activated, run their setup logic, and automatically clean up when deactivated.
-
-```ts
-const page = () => 'home'
-const count = () => 0
-
-// Counter render effect
-const counter = () => {
-  console.log(`Counter render: ${get(count)}`)
-}
-
-// Home component
-const Home = () => {
-  console.log('Home mounted')
-  
-  on(Home, 'clear', () => {
-    console.log('Home unmounted')
-  })
-}
-
-// Counter component
-const Counter = () => {
-  console.log('Counter mounted')
-  
-  on(counter)
-  
-  on(Counter, 'clear', () => {
-    console.log('Counter unmounted')
-  })
-}
-
-// App component with conditional rendering
-const App = () => {
-  if (get(page) === 'home') {
-    on(Home)
-  } else if (get(page) === 'counter') {
-    on(Counter)
-  }
-}
-
-on(App)
-// logs: Home mounted
-
-set(page, 'counter')
-// logs: Home unmounted
-// logs: Counter mounted
-// logs: Counter render: 0
-
-set(count, 5)
-// logs: Counter render: 5
-
-set(page, 'home')
-// logs: Counter unmounted
-// logs: Home mounted
-
-set(count, 10)
-// nothing — Counter is unmounted, no longer reacting
-```
-
-When the parent effect re-runs, it emits a `'clear'` event that triggers cleanup handlers and stops nested effects. This enables component-like patterns: conditional rendering, routing, modals, or any architecture where units of code need to mount and unmount automatically.
-
 ## Events
 ###### [🏠︎](#index) / Events [↑](#effects) [↓](#slot)
 
-<sup>[Event types](#event-types) • [Unsubscribe](#unsubscribe) • [Up parameter](#up-parameter) • [Free parameter](#free-parameter)</sup>
+<sup>[Event types](#event-types) • [Unsubscribe](#unsubscribe)</sup>
 
-RuneHub provides a fine-grained event system for runes. Subscribe to specific lifecycle events using [`on(rune, event, listener, up?, free?)`](#on).
+RuneHub provides a fine-grained event system for runes. Subscribe to specific lifecycle events using [`on(rune, event, listener)`](#on).
 
 ### Event types
 ###### [🏠︎](#index) / [Events](#events) / Event types [↓](#unsubscribe)
 
-| Event     | Fired when                                            |
-|-----------|-------------------------------------------------------|
-| `init`    | the rune has finished its first computation           |
-| `call`    | the rune function has just been invoked               |
-| `update`  | a value has been set (even if equal to the previous)  |
-| `change`  | the value actually changed (`prev !== cur`)           |
-| `clear`   | before recomputation — used for cleanup               |
-| `destroy` | the rune is being destroyed                           |
-| `up`      | the rune gained its first subscriber                  |
-| `down`    | the rune lost its last subscriber                     |
+| Event     | Fired when                                           |
+|-----------|------------------------------------------------------|
+| `init`    | the rune has finished its first computation          |
+| `call`    | the rune function has just been invoked              |
+| `update`  | a value has been set (even if equal to the previous) |
+| `change`  | the value actually changed (`prev !== cur`)          |
+| `clear`   | before recomputation — used for cleanup              |
+| `destroy` | the rune is being destroyed                          |
+| `up`      | the rune gained its first subscriber                 |
+| `down`    | the rune lost its last subscriber                    |
+| `get`     | fired when a rune's value is accessed                |
 
 ```ts
 const count = () => 0
@@ -692,57 +628,6 @@ on(count, 'change', listener)
 
 // Unsubscribe using off hook
 off(count, 'change', listener)
-```
-
-### Up parameter
-###### [🏠︎](#index) / [Events](#events) / Up parameter [↑](#unsubscribe) [↓](#free-parameter)
-
-The 4th parameter `up` controls whether the rune should be activated immediately (default is `false`): event listeners always respond to state changes but computed runes only recalculate after activation, so `up=true` makes event subscriptions behave similarly to effects by activating the rune immediately.
-
-```ts
-const count = () => 0
-const double = () => get(count) * 2
-
-// up = false (default) — listener registered but double not computed
-on(double, 'change', () => {
-  console.log('first listener')
-})
-
-set(count, 5)  // nothing — double not active, no computation
-
-// up = true — double activated, both listeners start working
-on(double, 'change', () => {
-  console.log('second listener:', raw(double))
-}, true)
-
-set(count, 10)
-// logs: first listener
-// logs: second listener: 20
-```
-
-### Free parameter
-###### [🏠︎](#index) / [Events](#events) / Free parameter [↑](#up-parameter)
-
-The 5th parameter `free` controls automatic cleanup behavior. When `free = false` (default), subscriptions created inside an effect are automatically removed when the effect's `'clear'` event fires. When `free = true`, the subscription is not automatically cleaned up.
-
-```ts
-const count = () => 0
-
-const autoListener = () => console.log('auto')
-const manualListener = () => console.log('manual')
-
-const effect = () => {
-  // free = false (default) — automatically subscribes to effect's 'clear' event
-  on(count, 'change', autoListener)
-  
-  // free = true — no automatic cleanup, you manage the lifecycle
-  on(count, 'change', manualListener, false, true)
-}
-
-const cleanup = on(effect)
-cleanup()  // 'auto' subscription cleaned up, 'manual' subscription remains
-
-off(count, 'change', manualListener)  // manual cleanup
 ```
 
 ## Slot
