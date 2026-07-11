@@ -505,7 +505,7 @@ set(count, 5)
 // logs: Count: 5
 ```
 
-**Stopping an effect:**
+**Stopping an effect**
 
 [`on()`](#on) returns a function to stop the effect:
 
@@ -521,7 +521,28 @@ set(count, 15)
 // nothing — effect stopped
 ```
 
-You can also use the [`off`](#off) hook:
+**Multiple effect activation**
+
+When calling `on` for an effect multiple times, you need to call all returned destructors to stop the effect:
+
+```ts
+const stop1 = on(log)
+const stop2 = on(log)
+
+stop1()
+
+set(count, 10)
+// logs: Count: 10
+
+stop2()
+
+set(count, 15)
+// nothing — effect stopped
+```
+
+**Complete effect stop**
+
+You can also use the [`off`](#off) hook to force stop the effect:
 
 ```ts
 on(log)
