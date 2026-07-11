@@ -930,57 +930,6 @@ search.value = 'abc'
 // logs: Search: abc (after 300ms, only once)
 ```
 
-## Casting
-###### [🏠︎](#index) / Casting [↑](#slot) [↓](#hooks)
-
-<sup>[Custom Slot](#custom-slot) • [setCast helper](#setcast-helper)</sup>
-
-Casting allows you to customize how runes are converted into slots. By default, `Hub.cast()` creates a standard `Slot`, but you can override this behavior per-rune using the [`setCast`](#setcast-helper) helper.
-
-### Custom Slot
-###### [🏠︎](#index) / [Casting](#casting) / Custom Slot [↓](#setcast-helper)
-
-Create a custom slot class by extending `Slot`:
-
-```ts
-import { Slot, setCast, set } from 'rune-hub'
-
-class LoggedSlot<T> extends Slot<T> {
-  override set (value: T): void {
-    console.log('setting', value)
-    super.set(value)
-  }
-}
-
-const count = () => 0
-setCast(count, rune => new LoggedSlot(rune))
-
-set(count, 5)  // logs: setting 5
-```
-
-### setCast helper
-###### [🏠︎](#index) / [Casting](#casting) / setCast helper [↑](#custom-slot)
-
-The [`setCast`](#setcast-helper) function assigns a custom slot constructor to a rune:
-
-```ts
-import { setCast, type Cast } from 'rune-hub'
-
-const count = () => 0
-
-const cast: Cast<number> = (rune, hub, anon) => new LoggedSlot(rune, hub, anon)
-
-setCast(count, cast)
-```
-
-**Signature:**
-
-```ts
-function setCast<T>(rune: Rune<T>, cast: Cast<T>): void
-
-type Cast<T> = (rune: Rune<T>, hub?: Hub, anon?: boolean) => Slot<T>
-```
-
 ## Hooks
 ###### [🏠︎](#index) / Hooks [↑](#casting) [↓](#common-pitfalls)
 
