@@ -1,0 +1,78 @@
+{
+  "name": "rune-hub",
+  "version": "1.0.0",
+  "description": "What if reactive state was just... functions?",
+  "author": "Mikhail Lysikov <d8corp@mail.ru>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "jsnext:main": "index.mjs",
+  "types": "index.d.ts",
+  "unpkg": "index.min.js",
+  "jsdelivr": "index.min.js",
+  "homepage": "https://github.com/d8corp/rune-hub",
+  "bugs": {
+    "url": "https://github.com/d8corp/rune-hub/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d8corp/rune-hub.git"
+  },
+  "keywords": [
+    "rune",
+    "hub",
+    "stateful",
+    "reaction",
+    "reactions",
+    "react",
+    "reactive",
+    "observe",
+    "observable",
+    "front-end"
+  ],
+  "scripts": {
+    "build": "innetjs release -m",
+    "test": "npm run test:jest && npm run test:size",
+    "test:jest": "jest",
+    "test:coverage": "jest --coverage",
+    "test:size": "size-limit",
+    "speed:node": "innetjs run speed.test.ts -c tsconfig.speed.json --expose-gc",
+    "speed:node_x5": "for i in {1..5}; do PERFOCODE_NO_ASK=\"true\" PERFOCODE_THROW_ERROR=\"true\" npm run speed:node; done",
+    "speed:node:init": "innetjs run speed-tests/init.test.ts -c tsconfig.speed.json --expose-gc",
+    "speed:node:get": "innetjs run speed-tests/get.test.ts -c tsconfig.speed.json --expose-gc",
+    "speed:node:set": "innetjs run speed-tests/set.test.ts -c tsconfig.speed.json --expose-gc",
+    "speed:node:batching": "innetjs run speed-tests/batching.test.ts -c tsconfig.speed.json --expose-gc",
+    "speed:node:examples": "innetjs run speed-tests/examples.test.ts -c tsconfig.speed.json --expose-gc",
+    "speed:bun": "bun speed.test.ts",
+    "speed:bun_x5": "for i in {1..5}; do PERFOCODE_NO_ASK=\"true\" PERFOCODE_THROW_ERROR=\"true\" npm run speed:bun; done",
+    "speed:bun:init": "bun speed-tests/init.test.ts",
+    "speed:bun:get": "bun speed-tests/get.test.ts",
+    "speed:bun:set": "bun speed-tests/set.test.ts",
+    "speed:bun:batching": "bun speed-tests/batching.test.ts",
+    "speed:bun:examples": "bun speed-tests/examples.test.ts",
+    "release": "innetjs release -p -m",
+    "patch": "innetjs patch",
+    "minor": "innetjs minor",
+    "major": "innetjs major",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "size-limit": [
+    {
+      "name": "Full",
+      "path": "./release/index.js",
+      "import": {
+        "./release/index.mjs": "*"
+      },
+      "limit": "1557 B"
+    },
+    {
+      "name": "Core",
+      "path": "./release/index.js",
+      "import": {
+        "./release/index.mjs": "{ Hub, Slot }"
+      },
+      "limit": "1274 B"
+    }
+  ]
+}
