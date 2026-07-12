@@ -28,6 +28,9 @@ RuneHub
   <a href="https://github.com/d8corp/rune-hub/blob/main/CHANGELOG.md" target="_blank">
     <img src="https://img.shields.io/badge/Changelog-⋮-brightgreen" alt="rune-hub changelog">
   </a>
+  <a href="https://d8corp.github.io/rune-hub/coverage/lcov-report" target="_blank">
+    <img src="https://github.com/d8corp/rune-hub/actions/workflows/tests.yml/badge.svg" alt="rune-hub tests">
+  </a>
 </div>
 <br>
 
