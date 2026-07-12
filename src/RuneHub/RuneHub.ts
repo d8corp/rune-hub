@@ -5,6 +5,11 @@ import { Queue } from '../Queue'
  * Generic function type with configurable parameters and return type.
  * @template P - Array of parameter types
  * @template R - Return type
+ * @example
+ * ```typescript
+ * const add: Fn<[number, number], number> = (a, b) => a + b
+ * const log: Fn<[string], void> = (msg) => console.log(msg)
+ * ```
  */
 export type Fn<P extends any[] = any[], R = any> = (...args: P) => R
 
@@ -13,24 +18,54 @@ export type Fn<P extends any[] = any[], R = any> = (...args: P) => R
  * Can be a computed value or an effect (side-effect function).
  * Runes are the core building blocks of the reactive system.
  * @template R - The type of value returned by the rune (void for effects)
+ * @example
+ * ```typescript
+ * const counter: Rune<number> = () => 42
+ * const effect: Rune<void> = () => console.log('side effect')
+ * ```
  */
 export type Rune<R = any> = Fn<[], R>
 
 /**
  * A function that performs cleanup when called.
  * Typically returned by subscription methods to allow unsubscribing.
+ * @example
+ * ```typescript
+ * const unsubscribe: Destructor = on(count, 'change', () => {
+ *   console.log('changed')
+ * })
+ *
+ * // Later: unsubscribe()
+ * ```
  */
 export type Destructor = Fn<[], void>
 
 /**
  * A listener function that responds to events.
  * Listeners are called when specific events occur on a slot.
+ * @example
+ * ```typescript
+ * const listener: Listener = () => {
+ *   console.log('Event triggered!')
+ * }
+ *
+ * slot.on('change', listener)
+ * ```
  */
 export type Listener = Fn<[], void>
 
 /**
  * An action is a side-effect function that performs work.
  * Actions are used in batching and context management.
+ * @example
+ * ```typescript
+ * const action: Action = () => {
+ *   set(count, raw(count) + 1)
+ *   console.log('Action performed')
+ * }
+ *
+ * batch(action)
+ * ```
  */
 export type Action = Fn<[], void>
 
@@ -44,6 +79,13 @@ export type Action = Fn<[], void>
  * - `destroy`: Slot is being destroyed
  * - `up`: Slot has gained subscribers
  * - `down`: Slot has lost all subscribers
+ * - `get`: Fired when a rune's value is accessed
+ * @example
+ * ```typescript
+ * const count = () => 0
+ * on(count, 'change', () => console.log('Count changed!'))
+ * on(count, 'init', () => console.log('Count initialized'))
+ * ```
  */
 export type Event = 'init' | 'update' | 'call' | 'change' | 'clear' | 'destroy' | 'up' | 'down' | 'get'
 
@@ -51,6 +93,16 @@ export type Event = 'init' | 'update' | 'call' | 'change' | 'clear' | 'destroy' 
  * A Slot manages the reactive state and dependencies for a rune.
  * It tracks subscribers, dependencies, and handles updates in the reactive graph.
  * @template T - The type of value managed by this slot
+ * @example
+ * ```typescript
+ * const count = new Slot(() => 0)
+ *
+ * // Subscribe to changes
+ * count.on('change', () => console.log('Changed to:', count.raw))
+ *
+ * // Set new value
+ * count.set(5)
+ * ```
  */
 export class Slot<T = unknown> {
   /** Current value of the slot */
@@ -99,6 +151,11 @@ export class Slot<T = unknown> {
    * @param rune - The rune function to manage
    * @param hub - The hub that owns this slot (defaults to root hub)
    * @param anon - Whether this is an anonymous slot (not registered in hub)
+   * @example
+   * ```typescript
+   * const count = () => 0
+   * const slot = new Slot(count, Hub.root, false)
+   * ```
    */
   constructor (
     readonly rune: Rune<T>,
@@ -113,6 +170,13 @@ export class Slot<T = unknown> {
   /**
    * Destroys the slot, cleaning up all subscriptions and removing it from the hub.
    * Emits 'clear' and 'destroy' events before cleanup.
+   * @example
+   * ```typescript
+   * const slot = new Slot(() => 0)
+   *
+   * slot.on('change', () => console.log('changed'))
+   * slot.destroy() // Cleans up all subscriptions and remove from hub
+   * ```
    */
   destroy (): void {
     this.event(this.events.destroy)
@@ -145,6 +209,14 @@ export class Slot<T = unknown> {
    * Initializes the slot by computing its initial value.
    * Runs the rune function and tracks dependencies.
    * Emits 'init' event when complete.
+   * @example
+   * ```typescript
+   * const slot = new Slot(() => 42)
+   *
+   * console.log(slot.cur) // undefined
+   * slot.init() // Computes initial value and emits 'init'
+   * console.log(slot.cur) // 42
+   * ```
    */
   init (): void {
     if (this.prep) return
@@ -215,6 +287,12 @@ export class Slot<T = unknown> {
    * Gets the current value without tracking dependencies.
    * Initializes the slot if needed and forces any pending updates.
    * @returns The current value
+   * @example
+   * ```typescript
+   * const slot = new Slot(() => 42)
+   *
+   * console.log(slot.raw) // 42, no dependency tracking
+   * ```
    */
   get raw (): T {
     this.event(this.events.get)
@@ -230,6 +308,14 @@ export class Slot<T = unknown> {
   /**
    * Gets the current value with dependency tracking.
    * Alias for the get() method.
+   * @example
+   * ```typescript
+   * const slot = new Slot(() => 0)
+   *
+   * on(() => {
+   *   console.log(slot.value) // Tracks dependency
+   * })
+   * ```
    */
   get value (): T {
     return this.get()
@@ -238,6 +324,13 @@ export class Slot<T = unknown> {
   /**
    * Sets a new value for the slot.
    * Alias for the set() method.
+   * @example
+   * ```typescript
+   * const slot = new Slot(() => 0)
+   *
+   * slot.value = 42 // Sets new value
+   * console.log(slot.value) // 42
+   * ```
    */
   set value (value: T) {
     this.set(value)
@@ -247,6 +340,14 @@ export class Slot<T = unknown> {
    * Gets the current value and tracks this slot as a dependency.
    * If called within another slot's context, creates a dependency relationship.
    * @returns The current value
+   * @example
+   * ```typescript
+   * const count = new Slot(() => 0)
+   *
+   * on(() => {
+   *   console.log(count.get())
+   * })
+   * ```
    */
   get (): T {
     const result = this.raw
@@ -262,6 +363,14 @@ export class Slot<T = unknown> {
    * Sets a new value for the slot.
    * If the value differs from the current value, schedules an update.
    * @param value - The new value to set
+   * @example
+   * ```typescript
+   * const count = new Slot(() => 0)
+   * count.on('change', () => console.log('Changed to:', count.raw))
+   *
+   * slot.set(42) // Logs: Changed to: 42
+   * slot.set(42) // No change, no log
+   * ```
    */
   set (value: T): void {
     if (this.hub.ctx) {
@@ -298,6 +407,17 @@ export class Slot<T = unknown> {
   /**
    * Activates the slot and keeps it active.
    * @returns A destructor function to deactivate
+   * @example
+   * ```typescript
+   * const count = new Slot(() => 0)
+   *
+   * const log = new Slot(() => {
+   *   console.log(count.value)
+   * })
+   *
+   * log.on()
+   * count.set(1) // logs: 1
+   * ```
    */
   on (): Destructor
   /**
@@ -305,6 +425,17 @@ export class Slot<T = unknown> {
    * @param event - The event to listen for
    * @param listener - The listener function to call
    * @returns A destructor function to unsubscribe
+   * @example
+   * ```typescript
+   * const count = new Slot(() => 0)
+   *
+   * const unsubscribe = count.on('change', () => {
+   *   console.log('Value changed to:', count.raw)
+   * })
+   *
+   * slot.set(42) // Logs: Value changed to: 42
+   * unsubscribe() // Stop listening
+   * ```
    */
   on (event: Event, listener: Listener): Destructor
   on (event?: Event, listener?: Listener) {
