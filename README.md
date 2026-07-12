@@ -1137,7 +1137,7 @@ on(log)
 // only re-runs when `a` changes
 ```
 
-### slot (hook)
+### <a id="slot-hook">slot</a>
 ###### [🏠︎](#index) / [Hooks](#hooks) / slot [↑](#unwatch) [↓](#getslot)
 
 Returns the slot for a rune in the current hub, creating it lazily if necessary.
@@ -1155,7 +1155,7 @@ Returns the slot for a rune **only if it already exists**, otherwise `undefined`
 function getSlot<T extends Rune>(rune: T): Slot<ReturnType<T>> | undefined
 ```
 
-### hub (hook)
+### <a id="hub-hook">hub</a>
 ###### [🏠︎](#index) / [Hooks](#hooks) / hub [↑](#getslot)
 
 Returns the currently active hub (`Hub.cur`), or `Hub.root` if no custom hub is in scope.
