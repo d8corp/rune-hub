@@ -1813,3 +1813,4 @@ npm run speed:bun:examples    # end-to-end scenarios
 **Contributions are welcome!** Please feel free to submit [issues](https://github.com/d8corp/rune-hub/issues) and [pull requests](https://github.com/d8corp/rune-hub/pulls).
 
 [![issues](https://img.shields.io/github/issues-raw/d8corp/rune-hub)](https://github.com/d8corp/rune-hub/issues)
+[![pulls](https://img.shields.io/github/issues-pr-raw/d8corp/rune-hub)](https://github.com/d8corp/rune-hub/pulls)
