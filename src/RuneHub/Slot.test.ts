@@ -11,6 +11,61 @@ describe('Slot', () => {
     })
   })
 
+  describe('off with single subscriber', () => {
+    it('Should turn off source when it has only one subscriber', () => {
+      const log: string[] = []
+
+      const source = new Slot(() => {
+        log.push('source computed')
+
+        return 1
+      })
+
+      const derived = new Slot(() => {
+        return source.value * 2
+      })
+
+      derived.on()
+      expect(log).toEqual(['source computed'])
+      expect(source.up).toBe(true)
+
+      derived.off()
+      expect(source.up).toBe(false)
+    })
+
+    it('Should not turn off source when it has multiple subscribers', () => {
+      const source = new Slot(() => 1)
+      const derived1 = new Slot(() => source.value * 2)
+      const derived2 = new Slot(() => source.value * 3)
+
+      derived1.on()
+      derived2.on()
+      expect(source.up).toBe(true)
+
+      derived1.off()
+      expect(source.up).toBe(true)
+
+      derived2.off()
+      expect(source.up).toBe(false)
+    })
+
+    it('Should recursively turn off source chain with single subscribers', () => {
+      const a = new Slot(() => 1)
+      const b = new Slot(() => a.value * 2)
+      const c = new Slot(() => b.value * 2)
+
+      c.on()
+      expect(a.up).toBe(true)
+      expect(b.up).toBe(true)
+      expect(c.up).toBe(true)
+
+      c.off()
+      expect(a.up).toBe(false)
+      expect(b.up).toBe(false)
+      expect(c.up).toBe(false)
+    })
+  })
+
   describe('constructor', () => {
     it('Should has no throw', () => {
       expect(() => new Slot(() => {})).not.toThrow()

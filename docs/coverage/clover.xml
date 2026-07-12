@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1783890858889" clover="3.2.0">
+  <project timestamp="1783890858889" name="All files">
+    <metrics statements="314" coveredstatements="303" conditionals="120" coveredconditionals="114" methods="56" coveredmethods="54" elements="490" coveredelements="471" complexity="0" loc="314" ncloc="314" packages="16" files="30" classes="30"/>
+    <package name="src">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Queue">
+      <metrics statements="41" coveredstatements="41" conditionals="22" coveredconditionals="22" methods="6" coveredmethods="6"/>
+      <file name="Queue.ts" path="/Users/deight/cantinc/rune-hub/src/Queue/Queue.ts">
+        <metrics statements="40" coveredstatements="40" conditionals="22" coveredconditionals="22" methods="6" coveredmethods="6"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="17" count="417" type="stmt"/>
+        <line num="18" count="417" type="stmt"/>
+        <line num="19" count="417" type="stmt"/>
+        <line num="20" count="417" type="stmt"/>
+        <line num="21" count="417" type="stmt"/>
+        <line num="29" count="396" type="stmt"/>
+        <line num="31" count="396" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="395" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="40" type="stmt"/>
+        <line num="37" count="395" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="41" count="395" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="392" type="stmt"/>
+        <line num="45" count="395" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="355" type="stmt"/>
+        <line num="49" count="395" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="298" type="stmt"/>
+        <line num="53" count="395" type="stmt"/>
+        <line num="54" count="395" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="74" count="17" type="stmt"/>
+        <line num="84" count="324" type="stmt"/>
+        <line num="86" count="324" type="cond" truecount="2" falsecount="0"/>
+        <line num="87" count="292" type="stmt"/>
+        <line num="90" count="32" type="cond" truecount="2" falsecount="0"/>
+        <line num="91" count="11" type="stmt"/>
+        <line num="94" count="21" type="stmt"/>
+        <line num="96" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="97" count="4" type="stmt"/>
+        <line num="100" count="21" type="stmt"/>
+        <line num="102" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="103" count="17" type="stmt"/>
+        <line num="106" count="21" type="stmt"/>
+        <line num="116" count="91" type="stmt"/>
+        <line num="118" count="91" type="cond" truecount="2" falsecount="0"/>
+        <line num="119" count="71" type="stmt"/>
+        <line num="122" count="20" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/Queue/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.RuneHub">
+      <metrics statements="201" coveredstatements="190" conditionals="88" coveredconditionals="82" methods="38" coveredmethods="36"/>
+      <file name="RuneHub.ts" path="/Users/deight/cantinc/rune-hub/src/RuneHub/RuneHub.ts">
+        <metrics statements="200" coveredstatements="189" conditionals="88" coveredconditionals="82" methods="38" coveredmethods="36"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="107" count="3" type="stmt"/>
+        <line num="115" count="236" type="stmt"/>
+        <line num="118" count="236" type="stmt"/>
+        <line num="121" count="236" type="stmt"/>
+        <line num="124" count="236" type="stmt"/>
+        <line num="127" count="236" type="stmt"/>
+        <line num="130" count="236" type="stmt"/>
+        <line num="139" count="236" type="stmt"/>
+        <line num="142" count="236" type="stmt"/>
+        <line num="145" count="236" type="stmt"/>
+        <line num="147" count="236" type="stmt"/>
+        <line num="161" count="236" type="stmt"/>
+        <line num="162" count="236" type="cond" truecount="1" falsecount="0"/>
+        <line num="163" count="236" type="cond" truecount="1" falsecount="0"/>
+        <line num="165" count="236" type="cond" truecount="2" falsecount="0"/>
+        <line num="166" count="114" type="stmt"/>
+        <line num="182" count="9" type="stmt"/>
+        <line num="184" count="9" type="stmt"/>
+        <line num="186" count="9" type="stmt"/>
+        <line num="187" count="9" type="stmt"/>
+        <line num="188" count="9" type="stmt"/>
+        <line num="190" count="9" type="stmt"/>
+        <line num="192" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="193" count="2" type="stmt"/>
+        <line num="202" count="373" type="cond" truecount="2" falsecount="0"/>
+        <line num="203" count="78" type="stmt"/>
+        <line num="204" count="78" type="stmt"/>
+        <line num="222" count="735" type="cond" truecount="2" falsecount="0"/>
+        <line num="223" count="226" type="stmt"/>
+        <line num="225" count="226" type="stmt"/>
+        <line num="227" count="226" type="stmt"/>
+        <line num="228" count="226" type="stmt"/>
+        <line num="239" count="440" type="stmt"/>
+        <line num="240" count="440" type="stmt"/>
+        <line num="242" count="440" type="cond" truecount="2" falsecount="0"/>
+        <line num="243" count="15" type="stmt"/>
+        <line num="246" count="425" type="stmt"/>
+        <line num="247" count="425" type="stmt"/>
+        <line num="248" count="425" type="stmt"/>
+        <line num="250" count="425" type="stmt"/>
+        <line num="254" count="443" type="cond" truecount="2" falsecount="0"/>
+        <line num="256" count="203" type="stmt"/>
+        <line num="260" count="364" type="stmt"/>
+        <line num="262" count="364" type="stmt"/>
+        <line num="263" count="364" type="cond" truecount="2" falsecount="0"/>
+        <line num="264" count="361" type="stmt"/>
+        <line num="267" count="364" type="stmt"/>
+        <line num="269" count="364" type="stmt"/>
+        <line num="279" count="228" type="stmt"/>
+        <line num="280" count="228" type="stmt"/>
+        <line num="281" count="228" type="stmt"/>
+        <line num="282" count="228" type="stmt"/>
+        <line num="298" count="644" type="stmt"/>
+        <line num="299" count="644" type="stmt"/>
+        <line num="301" count="644" type="cond" truecount="2" falsecount="0"/>
+        <line num="302" count="2" type="stmt"/>
+        <line num="305" count="644" type="stmt"/>
+        <line num="321" count="189" type="stmt"/>
+        <line num="336" count="83" type="stmt"/>
+        <line num="353" count="338" type="stmt"/>
+        <line num="355" count="338" type="cond" truecount="4" falsecount="0"/>
+        <line num="356" count="311" type="stmt"/>
+        <line num="359" count="338" type="stmt"/>
+        <line num="376" count="209" type="cond" truecount="2" falsecount="0"/>
+        <line num="377" count="41" type="stmt"/>
+        <line num="380" count="209" type="cond" truecount="2" falsecount="0"/>
+        <line num="381" count="196" type="cond" truecount="2" falsecount="0"/>
+        <line num="382" count="187" type="stmt"/>
+        <line num="385" count="196" type="stmt"/>
+        <line num="386" count="196" type="stmt"/>
+        <line num="397" count="311" type="stmt"/>
+        <line num="398" count="311" type="stmt"/>
+        <line num="399" count="311" type="stmt"/>
+        <line num="401" count="311" type="cond" truecount="2" falsecount="0"/>
+        <line num="402" count="103" type="stmt"/>
+        <line num="403" count="103" type="stmt"/>
+        <line num="442" count="149" type="cond" truecount="2" falsecount="0"/>
+        <line num="443" count="97" type="cond" truecount="2" falsecount="0"/>
+        <line num="444" count="94" type="stmt"/>
+        <line num="446" count="94" type="cond" truecount="2" falsecount="0"/>
+        <line num="447" count="91" type="stmt"/>
+        <line num="448" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="449" count="2" type="stmt"/>
+        <line num="452" count="94" type="cond" truecount="2" falsecount="0"/>
+        <line num="453" count="15" type="stmt"/>
+        <line num="456" count="94" type="stmt"/>
+        <line num="459" count="97" type="cond" truecount="2" falsecount="2"/>
+        <line num="460" count="0" type="stmt"/>
+        <line num="463" count="97" type="stmt"/>
+        <line num="464" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="465" count="19" type="cond" truecount="1" falsecount="1"/>
+        <line num="466" count="19" type="stmt"/>
+        <line num="469" count="19" type="stmt"/>
+        <line num="472" count="1" type="stmt"/>
+        <line num="475" count="97" type="stmt"/>
+        <line num="477" count="97" type="stmt"/>
+        <line num="480" count="52" type="stmt"/>
+        <line num="482" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="483" count="49" type="stmt"/>
+        <line num="485" count="3" type="stmt"/>
+        <line num="488" count="52" type="stmt"/>
+        <line num="502" count="94" type="cond" truecount="2" falsecount="0"/>
+        <line num="503" count="79" type="stmt"/>
+        <line num="504" count="79" type="stmt"/>
+        <line num="506" count="79" type="stmt"/>
+        <line num="507" count="43" type="stmt"/>
+        <line num="509" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="510" count="39" type="stmt"/>
+        <line num="512" count="4" type="stmt"/>
+        <line num="516" count="79" type="stmt"/>
+        <line num="517" count="79" type="stmt"/>
+        <line num="518" count="79" type="stmt"/>
+        <line num="519" count="79" type="stmt"/>
+        <line num="520" count="79" type="stmt"/>
+        <line num="521" count="79" type="stmt"/>
+        <line num="523" count="79" type="stmt"/>
+        <line num="526" count="15" type="stmt"/>
+        <line num="528" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="530" count="15" type="stmt"/>
+        <line num="540" count="2293" type="cond" truecount="4" falsecount="0"/>
+        <line num="542" count="76" type="stmt"/>
+        <line num="544" count="76" type="stmt"/>
+        <line num="545" count="76" type="stmt"/>
+        <line num="546" count="76" type="stmt"/>
+        <line num="547" count="76" type="stmt"/>
+        <line num="548" count="77" type="stmt"/>
+        <line num="560" count="326" type="cond" truecount="2" falsecount="0"/>
+        <line num="562" count="313" type="stmt"/>
+        <line num="563" count="313" type="stmt"/>
+        <line num="573" count="136" type="cond" truecount="1" falsecount="1"/>
+        <line num="574" count="0" type="stmt"/>
+        <line num="576" count="0" type="stmt"/>
+        <line num="578" count="0" type="stmt"/>
+        <line num="581" count="136" type="stmt"/>
+        <line num="582" count="136" type="stmt"/>
+        <line num="583" count="136" type="stmt"/>
+        <line num="584" count="136" type="stmt"/>
+        <line num="585" count="136" type="stmt"/>
+        <line num="586" count="136" type="stmt"/>
+        <line num="587" count="136" type="stmt"/>
+        <line num="589" count="136" type="stmt"/>
+        <line num="590" count="151" type="cond" truecount="2" falsecount="0"/>
+        <line num="591" count="1" type="stmt"/>
+        <line num="595" count="136" type="cond" truecount="2" falsecount="0"/>
+        <line num="596" count="127" type="stmt"/>
+        <line num="607" count="313" type="stmt"/>
+        <line num="609" count="313" type="cond" truecount="1" falsecount="1"/>
+        <line num="610" count="313" type="stmt"/>
+        <line num="611" count="313" type="stmt"/>
+        <line num="614" count="313" type="stmt"/>
+        <line num="616" count="313" type="cond" truecount="2" falsecount="0"/>
+        <line num="617" count="258" type="stmt"/>
+        <line num="619" count="258" type="cond" truecount="2" falsecount="0"/>
+        <line num="620" count="133" type="stmt"/>
+        <line num="621" count="146" type="cond" truecount="2" falsecount="0"/>
+        <line num="623" count="136" type="cond" truecount="4" falsecount="0"/>
+        <line num="624" count="58" type="stmt"/>
+        <line num="626" count="78" type="stmt"/>
+        <line num="638" count="3" type="stmt"/>
+        <line num="640" count="3" type="stmt"/>
+        <line num="654" count="113" type="stmt"/>
+        <line num="661" count="6" type="stmt"/>
+        <line num="664" count="6" type="stmt"/>
+        <line num="667" count="6" type="stmt"/>
+        <line num="670" count="6" type="stmt"/>
+        <line num="679" count="113" type="stmt"/>
+        <line num="690" count="440" type="stmt"/>
+        <line num="691" count="440" type="stmt"/>
+        <line num="692" count="440" type="stmt"/>
+        <line num="693" count="440" type="stmt"/>
+        <line num="695" count="440" type="stmt"/>
+        <line num="706" count="80" type="stmt"/>
+        <line num="707" count="80" type="stmt"/>
+        <line num="708" count="80" type="stmt"/>
+        <line num="709" count="80" type="stmt"/>
+        <line num="711" count="80" type="stmt"/>
+        <line num="720" count="398" type="cond" truecount="2" falsecount="0"/>
+        <line num="721" count="215" type="stmt"/>
+        <line num="723" count="215" type="stmt"/>
+        <line num="726" count="183" type="stmt"/>
+        <line num="727" count="183" type="stmt"/>
+        <line num="728" count="183" type="stmt"/>
+        <line num="737" count="184" type="cond" truecount="2" falsecount="0"/>
+        <line num="739" count="183" type="cond" truecount="2" falsecount="0"/>
+        <line num="740" count="20" type="stmt"/>
+        <line num="742" count="20" type="stmt"/>
+        <line num="745" count="163" type="stmt"/>
+        <line num="749" count="163" type="stmt"/>
+        <line num="750" count="389" type="cond" truecount="2" falsecount="0"/>
+        <line num="751" count="313" type="stmt"/>
+        <line num="753" count="76" type="stmt"/>
+        <line num="757" count="163" type="stmt"/>
+        <line num="765" count="0" type="stmt"/>
+        <line num="766" count="0" type="stmt"/>
+        <line num="769" count="0" type="stmt"/>
+        <line num="770" count="0" type="stmt"/>
+        <line num="771" count="0" type="stmt"/>
+        <line num="772" count="0" type="stmt"/>
+        <line num="773" count="0" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/RuneHub/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/index.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.batch">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="batch.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/batch/batch.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/batch/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.destroy">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="destroy.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/destroy/destroy.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/destroy/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.get">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="get.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/get/get.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="149" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/get/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.getSlot">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="getSlot.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/getSlot/getSlot.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/getSlot/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.hub">
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="hub.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/hub/hub.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="389" type="cond" truecount="4" falsecount="0"/>
+      </file>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/hub/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.off">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/off/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="off.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/off/off.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.on">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/on/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="on.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/on/on.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="67" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.raw">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/raw/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="raw.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/raw/raw.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="49" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.set">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/set/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="set.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/set/set.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="105" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.slot">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/slot/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="slot.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/slot/slot.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="373" type="stmt"/>
+        <line num="22" count="373" type="stmt"/>
+        <line num="24" count="373" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="113" type="stmt"/>
+        <line num="28" count="260" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.unwatch">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/unwatch/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="unwatch.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/unwatch/unwatch.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks.update">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/update/index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="update.ts" path="/Users/deight/cantinc/rune-hub/src/hooks/update/update.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="25" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

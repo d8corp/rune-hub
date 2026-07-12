@@ -1,4 +1,4 @@
-import { batch, destroy, get, Hub, hub, off, on, raw, set, update } from '..'
+import { batch, destroy, get, Hub, off, on, raw, set, Slot, update } from '..'
 import type { Listener, Rune } from '.'
 
 describe('Rune', () => {
@@ -336,6 +336,36 @@ describe('Rune', () => {
         set(count, 2)
 
         expect(log).toEqual([0, 1, 2])
+      })
+
+      it('Should auto-deactivate when single activation calls itself', () => {
+        const log: number[] = []
+        const count = () => 0
+
+        const effect = () => {
+          log.push(get(count))
+        }
+
+        const stop = on(effect)
+        expect(log).toEqual([0])
+
+        stop()
+        expect(log).toEqual([0])
+
+        set(count, 1)
+        expect(log).toEqual([0])
+      })
+
+      it('Should handle self-deactivation directly via Slot.on()', () => {
+        const slot = new Slot(() => 1)
+
+        const activation = slot.on()
+        expect(slot.up).toBe(true)
+        expect(slot.activity.size).toBe(1)
+
+        activation()
+        expect(slot.up).toBe(false)
+        expect(slot.activity.size).toBe(0)
       })
     })
 
@@ -993,6 +1023,26 @@ describe('Rune', () => {
       batch(outerAction)
 
       expect(log).toEqual([[0, 0], [2, 2]])
+    })
+
+    it('Should process forced items in batch queue', () => {
+      const log: number[] = []
+      const count = () => 0
+
+      const effect = () => {
+        log.push(get(count))
+      }
+
+      on(effect)
+      expect(log).toEqual([0])
+
+      batch(() => {
+        set(count, 1)
+        update(count)
+        set(count, 2)
+      })
+
+      expect(log).toEqual([0, 2])
     })
   })
 
