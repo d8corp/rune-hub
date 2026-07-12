@@ -1804,8 +1804,8 @@ npm run speed:bun:examples    # end-to-end scenarios
 - **Source Code**: [GitHub](https://github.com/d8corp/rune-hub)
 - **Repository**: [npm](https://www.npmjs.com/package/rune-hub) • [npmx](https://npmx.dev/package/rune-hub)
 - **Progenitor**: [watch-state](https://www.npmjs.com/package/watch-state)
-- **Created for**: [@innet/dom](https://github.com/d8corp/innet-dom)
 - **Frameworks**: [@rune-hub/react](https://github.com/d8corp/rune-hub-react)
+- **Utils**: [@rune-hub/utils](https://github.com/d8corp/rune-hub-utils)
 
 **Contributions are welcome!** Please feel free to submit [issues](https://github.com/d8corp/rune-hub/issues) and [pull requests](https://github.com/d8corp/rune-hub/pulls).
 
