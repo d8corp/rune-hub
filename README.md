@@ -739,7 +739,7 @@ console.log(count.get())  // 0
 
 ```ts
 count.on('change', () => {
-  console.log('Count:', count.value)
+  console.log('Count:', count.raw)
 })
 
 count.value = 10
@@ -751,10 +751,10 @@ count.value = 10
 All event subscriptions return a function that removes the subscription:
 
 ```ts
-const listener = () => console.log('Count:', count.value)
-
 // Subscribe to event
-const stop = count.on('change', listener)
+const stop = count.on('change', () => {
+  console.log('Count:', count.raw)
+})
 
 // Unsubscribe
 stop()
@@ -765,9 +765,9 @@ stop()
 You can also use the `off` method to remove event subscriptions:
 
 ```ts
-const listener = () => console.log('Count:', count.value)
+const listener = () => console.log('Count:', count.raw)
 
-count.on('change', listener)
+count.on('change', listener)  // start listening
 
 count.off('change', listener)  // stop listening
 ```
