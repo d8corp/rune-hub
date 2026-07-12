@@ -100,7 +100,7 @@ const count = () => 0
 - **Simple API** — One interface for state, computed, and effects
 - **No Proxy** — Supports old browsers
 - **Fast** — Competitive with the fastest reactive libraries ([benchmarks](#performance))
-- **Tiny** — 1.6 KB minzip full
+- **Tiny** — 1.5 KB minzip full
 - **Zero dependencies** — No external packages
 - **Automatic tracking** — Dependencies and subscriptions managed for you
 - **Dynamic effects** — Conditional logic automatically updates dependency graph
