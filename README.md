@@ -742,7 +742,7 @@ count.on('change', () => {
   console.log('Count:', count.raw)
 })
 
-count.value = 10
+count.set(10)
 // logs: Count: 10
 ```
 
