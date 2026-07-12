@@ -31,6 +31,12 @@ RuneHub
   <a href="https://d8corp.github.io/rune-hub/coverage/lcov-report" target="_blank">
     <img src="https://github.com/d8corp/rune-hub/actions/workflows/tests.yml/badge.svg" alt="rune-hub tests">
   </a>
+  <a href="https://github.com/d8corp/rune-hub/issues" target="_blank">
+    <img src="https://img.shields.io/github/issues-raw/d8corp/rune-hub" alt="Open issues">
+  </a>
+  <a href="https://github.com/d8corp/rune-hub/pulls" target="_blank">
+    <img src="https://img.shields.io/github/issues-pr-raw/d8corp/rune-hub" alt="Pull requests">
+  </a>
 </div>
 <br>
 
