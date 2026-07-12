@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/d8corp/rune-hub/v1.0.0/logo.svg" width="80">
+<img src="https://cdn.jsdelivr.net/gh/d8corp/rune-hub@main/logo.svg" width="80">
 <br>
 RuneHub
 </h1>
