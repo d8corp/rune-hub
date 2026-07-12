@@ -559,7 +559,9 @@ set(count, 15)
 ### Nested effects
 ###### [🏠︎](#index) / [Effects](#effects) / Nested effects [↑](#basic-effects) [↓](#component-like-patterns)
 
-Effects can be nested. Nested effects subscribe to their own dependencies independently — changes to nested effect dependencies don't trigger the parent effect. When a parent effect re-runs, nested effects are automatically cleaned up:
+If an effect runs inside another effect, it runs as a nested effect.
+Nested effects subscribe to their own dependencies independently — changes to nested effect dependencies don't trigger the parent effect.
+When a parent effect re-runs, nested effects are automatically cleaned up:
 
 ```ts
 const count = () => 0
