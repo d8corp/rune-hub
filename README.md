@@ -629,10 +629,11 @@ All event subscriptions return a function that removes the subscription:
 
 ```ts
 const count = () => 0
-const listener = () => console.log('changed')
 
 // Subscribe to event
-const stop = on(count, 'change', listener)
+const stop = on(count, 'change', () => {
+  console.log('changed')
+})
 
 // Unsubscribe
 stop()
