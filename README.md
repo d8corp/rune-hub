@@ -726,10 +726,13 @@ The function provides the initial value. It's called lazily on first access.
 **Reading and writing:**
 
 ```ts
-console.log(count.value)  // 0
-
 count.value = 5
-console.log(count.value)  // 5
+// or
+count.set(5)
+
+console.log(count.value)  // 0
+// or
+console.log(count.get())  // 0
 ```
 
 **Subscribing to changes:**
